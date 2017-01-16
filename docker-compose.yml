@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_PASSWORD: docker
+    volumes:
+      - ./theme:/var/www/html/wp-content/themes/docker-wordpress
+
+  mysql:
+    image: mariadb
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: docker
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      - PMA_PASSWORD=docker
+    restart: always
+    ports:
+      - 3030:80
+    volumes:
+      - /sessions

@@ -1,0 +1,19 @@
+{
+  "name": "docker-wordpress",
+  "version": "1.0.0",
+  "description": "Development Environment for Wordpress using Docker",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijones922/docker-wordpress.git"
+  },
+  "author": "Ian Jones",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ijones922/docker-wordpress/issues"
+  },
+  "homepage": "https://github.com/ijones922/docker-wordpress#readme"
+}
