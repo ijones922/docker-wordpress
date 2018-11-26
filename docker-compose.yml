@@ -1,4 +1,4 @@
-version: '2'
+version: '3.3'
 
 services:
 
@@ -12,7 +12,10 @@ services:
       - ./theme:/var/www/html/wp-content/themes/docker-wordpress
 
   mysql:
-    image: mariadb
+    image: mysql:5.7
+    volumes:
+       - db_data:/var/lib/mysql
+    restart: always
     environment:
       MYSQL_DATABASE: wordpress
       MYSQL_ROOT_PASSWORD: docker
@@ -31,3 +34,5 @@ services:
       - 3030:80
     volumes:
       - /sessions
+volumes:
+  db_data:
